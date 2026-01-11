@@ -12,7 +12,8 @@ const Services = () => {
         "Quiet operation technology",
         "Energy-efficient systems",
         "Smart home integration"
-      ]
+      ],
+      img:"/home.jpg"
     },
     {
       title: "Commercial Lifts",
@@ -23,7 +24,8 @@ const Services = () => {
         "ADA compliant designs",
         "Advanced security features",
         "Traffic management systems"
-      ]
+      ],
+      img:"/8146.jpg"
     },
     {
       title: "Accessibility Solutions",
@@ -34,7 +36,8 @@ const Services = () => {
         "Stair lifts and chair lifts",
         "Pool lifts",
         "Custom accessibility solutions"
-      ]
+      ],
+      img:"/accessibility.jpg"
     }
   ];
 
@@ -94,13 +97,7 @@ const Services = () => {
               >
                 {/* Image Placeholder */}
                 <div className={`${idx % 2 === 1 ? 'md:order-2' : ''}`}>
-                  <div className="bg-gradient-to-br from-slate-200 to-slate-300 rounded-2xl shadow-xl aspect-[4/3] flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-24 h-24 mx-auto mb-4 bg-slate-400 rounded-full"></div>
-                      <p className="text-slate-500 text-lg">{service.title}</p>
-                      <p className="text-slate-400 text-sm">Service Image</p>
-                    </div>
-                  </div>
+                 <img src={service.img} alt="" />
                 </div>
 
                 {/* Content */}
@@ -186,13 +183,7 @@ const Services = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image Placeholder */}
             <div>
-              <div className="bg-gradient-to-br from-slate-200 to-slate-300 rounded-2xl shadow-xl aspect-[4/3] flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-slate-400 rounded-full"></div>
-                  <p className="text-slate-500 text-lg">Why Choose Us</p>
-                  <p className="text-slate-400 text-sm">Feature Image</p>
-                </div>
-              </div>
+              <img src="/inspection.jpg" alt="" />
             </div>
 
             {/* Content */}

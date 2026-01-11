@@ -2,6 +2,24 @@ import React from 'react';
 import { ArrowRight, Zap, Shield, Wrench, Award, Users, Clock } from 'lucide-react';
 
 const Home = () => {
+
+const work=[
+  {
+    img:"/8146.jpg"
+  },
+  {
+    img:"/home.jpg"
+  },
+  {
+    img:"/installation.jpg"
+  },
+  {
+    img:"/accessibility.jpg"
+  }
+]
+
+
+
   const features = [
     {
       icon: <Zap className="w-8 h-8" />,
@@ -23,15 +41,18 @@ const Home = () => {
   const products = [
     {
       title: "Residential Elevators",
-      description: "Luxury home elevators designed for comfort and style"
+      description: "Luxury home elevators designed for comfort and style",
+     img:"/home.jpg"
     },
     {
       title: "Commercial Lifts",
-      description: "High-capacity solutions for office buildings and retail spaces"
+      description: "High-capacity solutions for office buildings and retail spaces",
+       img:"/8146.jpg"
     },
     {
       title: "Accessibility Lifts",
-      description: "Wheelchair lifts and platform solutions for enhanced mobility"
+      description: "Wheelchair lifts and platform solutions for enhanced mobility",
+      img:"accessibility.jpg"
     }
   ];
 
@@ -174,12 +195,7 @@ const Home = () => {
                 className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all group"
               >
                 {/* Image Placeholder */}
-                <div className="h-64 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="w-16 h-16 mx-auto mb-3 bg-slate-400 rounded-full"></div>
-                    <p className="text-slate-500 text-sm">Product Image</p>
-                  </div>
-                </div>
+               <img src={product.img} className='w-96 h-96' alt="" />
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-slate-900 mb-2">{product.title}</h3>
                   <p className="text-slate-600 mb-4">{product.description}</p>
@@ -309,18 +325,10 @@ const Home = () => {
             <p className="text-xl text-slate-600">Recent installations showcase</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <div 
-                key={item}
-                className="aspect-square bg-gradient-to-br from-slate-200 to-slate-300 rounded-lg hover:shadow-lg transition-all cursor-pointer group overflow-hidden"
-              >
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-center p-4">
-                    <div className="w-12 h-12 mx-auto mb-2 bg-slate-400 rounded-full"></div>
-                    <p className="text-slate-500 text-xs">Gallery Image {item}</p>
-                  </div>
-                </div>
-              </div>
+            {work.map((item) => (
+              
+               <img key={item} src={item.img} className='w-64 h-64' alt="" />
+              
             ))}
           </div>
         </div>
