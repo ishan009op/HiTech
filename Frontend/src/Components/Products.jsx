@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Check, ArrowRight, Home, Building2, Accessibility, Zap, Shield, Volume2 } from 'lucide-react';
-
+import ProductModal from './ProductModal';
 const Products = () => {
   const [activeCategory, setActiveCategory] = useState('all');
-
+const [selectedProduct, setSelectedProduct] = useState(null);
   const categories = [
     { id: 'all', name: 'All Products', icon: <Zap className="w-5 h-5" /> },
     { id: 'residential', name: 'Residential', icon: <Home className="w-5 h-5" /> },
@@ -260,7 +260,7 @@ const Products = () => {
                   <p className="text-sm text-slate-500 italic mb-3">{product.tagline}</p>
                   <p className="text-slate-600 mb-4">{product.description}</p>
                   
-                  <button className="text-cyan-500 font-semibold flex items-center group-hover:gap-2 transition-all">
+                  <button onClick={()=> setSelectedProduct(product)} className="text-cyan-500 font-semibold flex items-center group-hover:gap-2 transition-all">
                     View Details
                     <ArrowRight className="ml-1 w-4 h-4" />
                   </button>
@@ -377,6 +377,13 @@ const Products = () => {
             </button>
           </div>
         </div>
+
+<ProductModal 
+        isOpen={!!selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+        product={selectedProduct}
+      />
+
       </section>
 
       <style>{`

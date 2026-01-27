@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Star, Quote, ThumbsUp, MessageCircle } from 'lucide-react';
-
+import ReviewModal from './ReviewModal';
 const Reviews = () => {
   const [selectedRating, setSelectedRating] = useState('all');
-
+const [isModalOpen, setIsModalOpen] = useState(false)
   const reviews = [
     {
       name: "Sarah Johnson",
@@ -242,12 +242,12 @@ const Reviews = () => {
           <p className="text-xl text-slate-600 mb-8">
             Are you a satisfied ElevateLifts customer? We'd love to hear about your experience!
           </p>
-          <button className="bg-cyan-500 text-white px-8 py-4 rounded-lg hover:bg-cyan-600 transition-all shadow-lg hover:shadow-xl text-lg">
+          <button onClick={() => setIsModalOpen(true)} className="bg-cyan-500 text-white px-8 py-4 rounded-lg hover:bg-cyan-600 transition-all shadow-lg hover:shadow-xl text-lg">
             Write a Review
           </button>
         </div>
       </section>
-
+<ReviewModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <style>{`
         @keyframes fadeIn {
           from {

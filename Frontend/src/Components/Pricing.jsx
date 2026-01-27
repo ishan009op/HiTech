@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import { Check, ArrowRight, DollarSign, Calendar, Shield } from 'lucide-react';
-
+import QuickQuoteModal from './QuoteModal';
 const Pricing = () => {
   const [billingType, setBillingType] = useState('one-time');
+const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState('');
+
+
+const handleGetQuote = (productName) => {
+    setSelectedProduct(productName);
+    setIsQuoteModalOpen(true);
+  };
 
   const pricingPlans = [
     {
@@ -206,7 +214,7 @@ const Pricing = () => {
                       ))}
                     </ul>
 
-                    <button className={`w-full py-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 ${
+                    <button onClick={()=> handleGetQuote(plan.name)} className={`w-full py-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 ${
                       plan.popular
                         ? 'bg-cyan-500 text-white hover:bg-cyan-600'
                         : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
@@ -355,6 +363,11 @@ const Pricing = () => {
             </button>
           </div>
         </div>
+          <QuickQuoteModal 
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+        preselectedProduct={selectedProduct}
+      />
       </section>
 
       <style>{`

@@ -97,7 +97,7 @@ const Services = () => {
               >
                 {/* Image Placeholder */}
                 <div className={`${idx % 2 === 1 ? 'md:order-2' : ''}`}>
-                 <img src={service.img} alt="" />
+                 <img className='rounded-2xl'src={service.img} alt="" />
                 </div>
 
                 {/* Content */}
